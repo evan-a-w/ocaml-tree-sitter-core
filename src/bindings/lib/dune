@@ -11,10 +11,11 @@
     (language c)
     (names bindings)
     (flags -I %{env:INCLUDEDIR=/usr/local/include}
-    )
+      -I /opt/homebrew/include)
   )
-  (c_library_flags (-L%{env:LIBDIR=/usr/local/lib}
-                    -ltree-sitter))
+ (c_library_flags (-L%{env:LIBDIR=/usr/local/lib}
+                   -L /opt/homebrew/lib
+                   -ltree-sitter))
 )
 
 (rule

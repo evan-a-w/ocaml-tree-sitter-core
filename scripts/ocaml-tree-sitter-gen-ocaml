@@ -213,6 +213,8 @@ cat > "$dst_dir"/lib/dune <<EOF
     (names ${c_files})
     (flags -std=c99
            -fPIC
+           -I %{env:TREESITTER_INCDIR=/usr/local/include}
+           -I /opt/homebrew/include
            -I .)
   )
 
@@ -220,6 +222,7 @@ cat > "$dst_dir"/lib/dune <<EOF
   ;   pkg-config --libs-only-L tree-sitter | sed -e 's/^-L//'
   ;
   (c_library_flags (-L%{env:TREESITTER_LIBDIR=/usr/local/lib}
+                    -L /opt/homebrew/lib
                     -lstdc++
                     -ltree-sitter)
   )

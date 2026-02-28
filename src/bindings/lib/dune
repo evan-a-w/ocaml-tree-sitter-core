@@ -10,11 +10,11 @@
   (foreign_stubs
     (language c)
     (names bindings)
-    (flags -I %{env:INCLUDEDIR=/usr/local/include}
-      -I /opt/homebrew/include)
+    (flags -I %{env:TREESITTER_INCDIR=/opt/homebrew/include}
+      -I %{env:INCLUDEDIR=/usr/local/include})
   )
- (c_library_flags (-L%{env:LIBDIR=/usr/local/lib}
-                   -L /opt/homebrew/lib
+ (c_library_flags (-L%{env:TREESITTER_LIBDIR=/opt/homebrew/lib}
+                   -L%{env:LIBDIR=/usr/local/lib}
                    -ltree-sitter))
 )
 
